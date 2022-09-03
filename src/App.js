@@ -1,11 +1,11 @@
-import "./App.css";
+import "./App.scss";
 import Weather from "./Weather";
 
 export default function App() {
   return (
     <div className="App">
       <Weather />
-      <p>
+      <footer>
         <a
           href="https://github.com/niftywebsite/nifty-weather-react"
           target="_blank"
@@ -21,7 +21,7 @@ export default function App() {
         >
           Helen Shatynska
         </a>
-      </p>
+      </footer>
     </div>
   );
 }

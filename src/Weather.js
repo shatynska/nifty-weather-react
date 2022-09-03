@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-import "./Weather.css";
+import "./Weather.scss";
 
 export default function Weather() {
   const [city, setCity] = useState("");
@@ -78,7 +78,7 @@ export default function Weather() {
         </div>
       </form>
 
-      <div className="row align-items-center m-0">
+      <div className="row align-items-center m-0 mt-3">
         <div className="col-4 p-0">
           <div>{weatherDate}</div>
           <div>{weatherDescription}</div>
