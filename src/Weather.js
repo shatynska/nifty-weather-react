@@ -55,12 +55,7 @@ export default function Weather() {
   return (
     <div className="Weather row">
       <form className="Search" onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col-1 p-0">
-            <label className="col-form-label">
-              <b>City</b>
-            </label>
-          </div>
+        <div className="row justify-content-center">
           <div className="col-7">
             <input
               type="search"
@@ -70,7 +65,7 @@ export default function Weather() {
               autoFocus="on"
             />
           </div>
-          <div className="col-4 p-0">
+          <div className="col-4">
             <input
               type="submit"
               className="btn btn-primary w-100"
@@ -90,14 +85,14 @@ export default function Weather() {
       </div>
 
       <div className="row align-items-center m-0">
-        <div className="col-3">
+        <div className="col-8 d-flex">
           <img alt="weather icon" src={weatherIcon} />
+          <span className="temperature">{weatherTemperature}</span>
+          <span className="units pt-4">
+            <a href="/">&#176;C</a> | <a href="/">&#176;F</a>
+          </span>
         </div>
-        <div className="col-5 current-temperature-block">
-          <span className="current-temperature">{weatherTemperature}</span>
-          &#176;
-        </div>
-        <div className="col-4 p-0">
+        <div className="col-4">
           humidity: <span>{weatherHumidity}%</span>
           <br />
           wind: <span>{weatherWind}</span> km/h
