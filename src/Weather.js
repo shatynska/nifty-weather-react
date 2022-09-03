@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import WeatherDate from "./WeatherDate";
 
 import "./Weather.scss";
 
@@ -9,24 +10,12 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   const apiKey = "98667db6d899892723315f5f8b9a4a51";
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
 
   function handleResponse(response) {
-    let date = new Date(response.data.dt * 1000);
-    let day = days[date.getDay()];
-    let time = `${date.getHours()}:${date.getMinutes()}`;
     setWeatherData({
       ready: true,
       name: response.data.name,
-      date: `${day} ${time}`,
+      date: response.data.dt,
       description: response.data.weather[0].description,
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
@@ -70,7 +59,7 @@ export default function Weather(props) {
 
         <div className="row align-items-center m-0 mt-3">
           <div className="col-4 p-0">
-            <div>{weatherData.date}</div>
+            <div><WeatherDate date={weatherData.date} /></div>
             <div class="text-capitalize">{weatherData.description}</div>
           </div>
 
@@ -81,7 +70,7 @@ export default function Weather(props) {
           <div className="col-8 d-flex">
             <img alt="weather icon" src={weatherData.icon} />
             <span className="temperature">{weatherData.temperature}</span>
-            <span className="units pt-4">
+            <span className="units pt-4 ps-2">
               <a href="/">&#176;C</a> | <a href="/">&#176;F</a>
             </span>
           </div>
