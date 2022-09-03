@@ -65,7 +65,9 @@ export default function Weather() {
             <input
               type="search"
               className="form-control"
+              placeholder="enter a city"
               onChange={handleChange}
+              autoFocus="on"
             />
           </div>
           <div className="col-4 p-0">
@@ -96,7 +98,7 @@ export default function Weather() {
           &#176;
         </div>
         <div className="col-4 p-0">
-          humidity: <span>{weatherHumidity}</span>
+          humidity: <span>{weatherHumidity}%</span>
           <br />
           wind: <span>{weatherWind}</span> km/h
           <br />
