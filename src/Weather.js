@@ -3,10 +3,10 @@ import axios from "axios";
 
 import "./Weather.scss";
 
-export default function Weather() {
+export default function Weather(props) {
   const [city, setCity] = useState("");
 
-  const [weatherData, setWeatherData] = useState({ready: false});
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   const apiKey = "98667db6d899892723315f5f8b9a4a51";
   const days = [
@@ -31,10 +31,8 @@ export default function Weather() {
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
-      icon: 
-        `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-      ,
-    })
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+    });
   }
 
   function handleChange(event) {
@@ -97,8 +95,7 @@ export default function Weather() {
       </div>
     );
   } else {
-    let city = "paris";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&units=metric&appid=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
     return <div>loading ...</div>;
   }

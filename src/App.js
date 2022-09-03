@@ -4,7 +4,7 @@ import Weather from "./Weather";
 export default function App() {
   return (
     <div className="App">
-      <Weather />
+      <Weather city="Montreal" />
       <footer>
         <a
           href="https://github.com/niftywebsite/nifty-weather-react"
