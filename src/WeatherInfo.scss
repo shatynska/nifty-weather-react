@@ -1,0 +1,15 @@
+.WeatherInfo {
+    .temperature {
+        font-weight: 600;
+        font-size: 4rem;
+    }
+
+    .active {
+        cursor: default;
+        color: black;
+    }
+
+    .passive {
+        cursor: pointer;
+    }
+}

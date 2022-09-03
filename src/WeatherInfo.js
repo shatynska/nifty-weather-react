@@ -1,11 +1,29 @@
+import { useState } from "react";
 import WeatherDate from "./WeatherDate";
 import WeatherIcon from "./WeatherIcon";
+import "./WeatherInfo.scss";
 
 export default function WeatherInfo(props) {
-  let weatherData = props.data;
+  const weatherData = props.data;
+
+  const [activeState, setActiveState] = useState("true");
+
+  const [temperature, setTemperature] = useState(weatherData.temperature);
+
+  function setCelsius(event) {
+    event.preventDefault();
+    setActiveState(true);
+    setTemperature(weatherData.temperature);
+  }
+
+  function setFahrenheit(event) {
+    event.preventDefault();
+    setActiveState(false);
+    setTemperature(Math.round((weatherData.temperature * 9) / 5 + 32));
+  }
 
   return (
-    <div>
+    <div class="WeatherInfo">
       <div className="row align-items-center m-0 mt-3">
         <div className="col-4 p-0">
           <div>
@@ -22,9 +40,23 @@ export default function WeatherInfo(props) {
           <span className="pt-3">
             <WeatherIcon data={weatherData.icon} />
           </span>
-          <span className="temperature ps-3">{weatherData.temperature}</span>
+          <span className="temperature ps-3">{temperature}</span>
           <span className="units pb-4 ps-2">
-            <a href="/">&#176;C</a> | <a href="/">&#176;F</a>
+            <a
+              href="/"
+              className={` ${activeState ? "active" : "passive"}`}
+              onClick={setCelsius}
+            >
+              &#176;C
+            </a>{" "}
+            |{" "}
+            <a
+              href="/" 
+              className={` ${activeState ? "passive" : "active"}`}
+              onClick={setFahrenheit}
+            >
+              &#176;F
+            </a>
           </span>
         </div>
         <div className="col-4">
