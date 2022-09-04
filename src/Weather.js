@@ -27,7 +27,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       icon: response.data.weather[0].icon,
-      coords: { lat: response.data.coord.lat, lon: response.data.coord.lon },
+      coords: response.data.coord,
     });
   }
 

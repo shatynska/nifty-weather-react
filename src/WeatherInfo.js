@@ -8,13 +8,13 @@ export default function WeatherInfo(props) {
 
 
   return (
-    <div class="WeatherInfo">
+    <div className="WeatherInfo">
       <div className="row align-items-center m-0 mt-3">
         <div className="col-4 p-0">
           <div>
             <WeatherDate date={weatherData.date} />
           </div>
-          <div class="text-capitalize">{weatherData.description}</div>
+          <div className="text-capitalize">{weatherData.description}</div>
         </div>
 
         <div className="col-8 city-name">{weatherData.name}</div>
