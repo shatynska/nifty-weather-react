@@ -1,7 +1,7 @@
-import ReactAnimatedWeather from "react-animated-weather-updated";
+import ReactAnimatedWeather from "react-animated-weather";
 
 export default function WeatherIcon(props) {
-  //   let data = props.data;
+
   const iconMapping = {
     "01d": "CLEAR_DAY",
     "01n": "CLEAR_NIGHT",
