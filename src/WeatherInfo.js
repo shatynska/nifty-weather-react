@@ -1,4 +1,3 @@
-import { useState } from "react";
 import WeatherDate from "./WeatherDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
@@ -24,7 +23,7 @@ export default function WeatherInfo(props) {
       <div className="row align-items-center m-0">
         <div className="col-8 d-flex align-items-center">
           <span className="pt-3">
-            <WeatherIcon data={weatherData.icon} />
+            <WeatherIcon code={weatherData.icon} size={60}/>
           </span>
           <WeatherTemperature data={weatherData.temperature} />
         </div>
